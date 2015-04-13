@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:ex="http://example.org#" xmlns:dc="http://purl.org/dc/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+     <ex:musique >
+          <ex:titre>Luiz</ex:titre>
+          <ex:genre rdf:resource="http://www.streamviewer.fr/genre/electro"/>
+          <ex:instruments>
+          </ex:instruments>
+
+
+     </ex:musique>
+
+     <ex:genre rdf:about="http://www.streamviewer.fr/genre/electro">
+     	<ex:name>Electro</ex:name>
+     </ex:genre>
+
+     <ex:instrument rdf:about="http://www.streamviewer.fr/instrument/synthetiseur">
+     	<ex:name>Synthétiseur</ex:name>
+     </ex:instrument>
+
+</rdf:RDF>
