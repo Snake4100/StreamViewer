@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:ex="http://example.org#" xmlns:dc="http://purl.org/dc/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+    <ex:musique rdf:about="http://www.streamviewer.fr/musique/Travelling">
+        <ex:titre>Travelling</ex:titre>
+        <ex:genre rdf:resource="http://www.streamviewer.fr/genre/electro"/>
+        <ex:instruments >
+        	<rdf:Bag>
+	        	<ex:instrument rdf:resource="http://www.streamviewer.fr/instrument/bruitage"/>
+				<ex:instrument rdf:resource="http://www.streamviewer.fr/instrument/percussions"/>
+				<ex:instrument rdf:resource="http://www.streamviewer.fr/instrument/synthetiseur"/>
+				<ex:instrument rdf:resource="http://www.streamviewer.fr/instrument/saxophone"/>
+				<ex:instrument rdf:resource="http://www.streamviewer.fr/instrument/contrebasse"/>
+				<ex:instrument rdf:resource="http://www.streamviewer.fr/instrument/voix"/>
+			</rdf:Bag>
+        </ex:instruments>
+    </ex:musique>
+
+
+    <ex:genre rdf:about="http://www.streamviewer.fr/genre/electro">
+     	<ex:name>Electro</ex:name>
+    </ex:genre>
+
+    <ex:instrument rdf:about="http://www.streamviewer.fr/instrument/synthetiseur">
+     	<ex:name>Synthétiseur</ex:name>
+    </ex:instrument>
+    <ex:instrument rdf:about="http://www.streamviewer.fr/instrument/bruitage">
+     	<ex:name>Bruitage</ex:name>
+    </ex:instrument>
+    <ex:instrument rdf:about="http://www.streamviewer.fr/instrument/percussions">
+     	<ex:name>Percussions</ex:name>
+    </ex:instrument>
+    <ex:instrument rdf:about="http://www.streamviewer.fr/instrument/saxophone">
+     	<ex:name>Saxophone</ex:name>
+    </ex:instrument>
+    <ex:instrument rdf:about="http://www.streamviewer.fr/instrument/contrebasse">
+     	<ex:name>Contrebasse</ex:name>
+    </ex:instrument>
+    <ex:instrument rdf:about="http://www.streamviewer.fr/instrument/voix">
+     	<ex:name>Voix</ex:name>
+    </ex:instrument>
+
+
+
+</rdf:RDF>
