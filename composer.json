@@ -1,0 +1,6 @@
+{
+    "require": {
+        "zendframework/zendPdf": "dev-master",
+        "zendframework/zendpdf": "dev-master"
+    }
+}
