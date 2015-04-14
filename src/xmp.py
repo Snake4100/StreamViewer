@@ -46,7 +46,7 @@ for fichier_rdf in rdf_files:
 		for genre in resutlat:
 			genre = "%s"%genre
 			#meta.set_property(nameSpace_DC, 'subject', str(genre).encode('utf-8'))
-			meta.set_localized_text(nameSpace_DC, 'subject', 'fr-FR','fr-FR', str(genre).encode('utf-8'))
+			meta.set_localized_text(nameSpace_DC, 'genre', 'fr-FR','fr-FR', str(genre).encode('utf-8'))
 
 		#on récupére les mots cles
 		resultat = g.query('SELECT ?mot_cle where { ?musique <http://example.org#mots-cles> ?motsCles . ?motsCles <http://example.org#mot-cle> ?x . ?x <http://example.org#name> ?mot_cle }')
