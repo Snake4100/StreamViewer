@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:ex="http://example.org#" xmlns:dc="http://purl.org/dc/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+    <rdfs:Class rdf:ID="ex:musique"/>
+    <rdfs:Class rdf:ID="ex:genre"/>
+    <rdfs:Class rdf:ID="ex:instrument"/>
+    <rdfs:Class rdf:ID="ex:mot-cle"/>
+    
+    
+
+
+
+
+
+
+</rdf:RDF>
