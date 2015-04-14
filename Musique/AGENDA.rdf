@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:ex="http://example.org#" xmlns:dc="http://purl.org/dc/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+    <ex:musique rdf:about="http://www.streamviewer.fr/musique/Agenda">
+        <ex:titre>Agenda</ex:titre>
+        <ex:genre rdf:resource="http://www.streamviewer.fr/genre/jingle"/>
+        <ex:mots-cles >
+        	<rdf:Bag>
+        		<ex:mot-cle rdf:resource="http://www.streamviewer.fr/mot-cle/joie"/>
+        		<ex:mot-cle rdf:resource="http://www.streamviewer.fr/mot-cle/legerete"/>
+        		<ex:mot-cle rdf:resource="http://www.streamviewer.fr/mot-cle/cuivres"/>
+                <ex:mot-cle rdf:resource="http://www.streamviewer.fr/mot-cle/bonheur"/>
+                <ex:mot-cle rdf:resource="http://www.streamviewer.fr/mot-cle/voyage"/>
+                <ex:mot-cle rdf:resource="http://www.streamviewer.fr/mot-cle/world music"/>
+        	</rdf:Bag>
+        </ex:mots-cles>
+    </ex:musique>
+
+    <ex:genre rdf:about="http://www.streamviewer.fr/genre/jingle">
+     	<ex:name>Jingle</ex:name>
+    </ex:genre>
+
+    <ex:mot-cle rdf:about="http://www.streamviewer.fr/mot-cle/joie">
+     	<ex:name>Mystique</ex:name>
+    </ex:mot-cle>
+    <ex:mot-cle rdf:about="http://www.streamviewer.fr/mot-cle/legerete">
+     	<ex:name>Voyage</ex:name>
+    </ex:mot-cle>
+    <ex:mot-cle rdf:about="http://www.streamviewer.fr/mot-cle/cuivres">
+     	<ex:name>Nuit</ex:name>
+    </ex:mot-cle>
+    <ex:mot-cle rdf:about="http://www.streamviewer.fr/mot-cle/bonheur">
+        <ex:name>Nuit</ex:name>
+    </ex:mot-cle>
+    <ex:mot-cle rdf:about="http://www.streamviewer.fr/mot-cle/voyage">
+        <ex:name>Nuit</ex:name>
+    </ex:mot-cle>
+    <ex:mot-cle rdf:about="http://www.streamviewer.fr/mot-cle/world music">
+        <ex:name>Nuit</ex:name>
+    </ex:mot-cle>
+
+
+</rdf:RDF>
