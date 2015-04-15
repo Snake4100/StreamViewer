@@ -12,4 +12,5 @@ foreach($instruments as $instrument){
 	
 	echo $instrument  .PHP_EOL;
 }
+
 echo "fini"  .PHP_EOL;
