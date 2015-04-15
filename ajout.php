@@ -33,9 +33,8 @@
     </div>
 
     <div class="col-lg-4">
-        <form enctype="multipart/form-data" action="http://localhost:8888/StreamViewer/script_upload_fichier.php" method="post">
+        <form action="http://localhost:8888/StreamViewer/script_upload_fichier.php" method="post">
             <div class="form-group">
-
                 <!-- MAX_FILE_SIZE doit précéder le champ input de type file -->
                 <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
                 <!-- Le nom de l'élément input détermine le nom dans le tableau $_FILES -->

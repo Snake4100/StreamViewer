@@ -35,9 +35,9 @@
     </div>
 
  	<div class="col-lg-6">
- 		<form>
+ 		<form enctype="multipart/form-data" action="http://localhost:8888/StreamViewer/src/index-search.php" method="post">
 	 		<div class="form-group">
-	    		<input type="text" class="form-control" id="exampleInputPassword1" placeholder="Recherche ...">
+	    		<input type="text" name="toSearch" class="form-control" placeholder="Recherche ...">
 	  		</div>
 	  		<button type="submit" class="btn btn-default center-block">Rechercher</button>
 		</form>
