@@ -19,10 +19,9 @@
     <?php
         include 'nav.php';
      ?>
-
  	<header class="row">
         <div class="col-lg-12">
-        	<h2 class="text-center">StreamViewer<h2>
+        	<h2 class="text-center">Ajouter une musique sur StreamViewer !<h2>
         </div>
     </header>
 
@@ -30,21 +29,27 @@
     <br>
     <br>
 
-
- 	<div class="col-lg-3">
+    <div class="col-lg-4">
     </div>
 
- 	<div class="col-lg-6">
- 		<form>
-	 		<div class="form-group">
-	    		<input type="text" class="form-control" id="exampleInputPassword1" placeholder="Recherche ...">
-	  		</div>
-	  		<button type="submit" class="btn btn-default center-block">Rechercher</button>
-		</form>
- 	</div>
+    <div class="col-lg-4">
+        <form enctype="multipart/form-data" action="http://localhost:8888/StreamViewer/script_upload_fichier.php" method="post">
+            <div class="form-group">
 
- 	<div class="col-lg-3">
+                <!-- MAX_FILE_SIZE doit précéder le champ input de type file -->
+                <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+                <!-- Le nom de l'élément input détermine le nom dans le tableau $_FILES -->
+                <!--<input name="userfile" type="file" class="form-control"/>-->
+                <input name="userfile" type="file" class="filestyle center-block" data-size="lg">
+                <br>
+                <input type="submit" value="Envoyer le fichier" class="btn btn-default center-block"/>
+            </div>
+        </form>
     </div>
+
+    <div class="col-lg-4">
+    </div>
+    
  	
  </body>
 </html>

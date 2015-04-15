@@ -11,7 +11,7 @@
 
 			$chemin = $dossier_musique.$fichier;
 
-			$output = shell_exec("python get_all_rdf.py $chemin");
+			$output = shell_exec("python get_rdf.py $chemin");
 	
 			$resultat = json_decode($output,true);
 
