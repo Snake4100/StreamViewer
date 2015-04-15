@@ -1,66 +1,41 @@
 
 <?php
-require '../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 #On récupère le nom de l'index
-$indexName = "searchEngine";
+$fileName = "searchEngine";
 
 
 
 #Ensuite, test si l'index existe ou non
-if(!file_exists($indexName))
+if(!file_exists($fileName))
 {
 	echo "Erreur, index inexistant". PHP_EOL;
 }
 else 
 {	
-	$fichier = $_GET["path"];;
-	
-	$output = shell_exec("python get_rdf_data.py $fichier");
-
-	$rdfData = json_decode($output,true);
 	
 	//On créé ensuite un nouveau document
 	$doc = new \ZendSearch\Lucene\Document();
 	
 	
-	$titre = " ";
-	$genre = " ";
-	$motsCles = " ";
-	$instruments = " ";
-	
-	foreach($rdfData as $key => $data) {			
-		if($key == 'titre'){
-			$titre = $data;	
-		}
-		else if($key == 'genre'){
-			$genre = $data;	
-		}    		
-		else if($key == 'motCles'){
-			$motsCles = $data;	
-		}    		
-		else if($key == 'instrument'){
-			$instruments = $data;	
-		}    
-		
-	}
-				/*echo 'titre: ' . $titre .PHP_EOL;
-				echo 'genre: ' . $genre .PHP_EOL;
-				echo 'motCles: ' . $motsCles .PHP_EOL;
-				echo 'instruments: ' . $instruments .PHP_EOL;	*/
+	$titre = getTitre($rdfData);
+	$genre = getGenre($rdfData);
+	$instruments = getInstruments($rdfData);
+	$motCles = getMotCles($rdfData);
 	
 	//Auquel on va ajouter les champs souhaités
 	$doc->addField(\ZendSearch\Lucene\Document\Field::text('title', $titre));
 	$doc->addField(\ZendSearch\Lucene\Document\Field::text('genre', $genre));
 	$doc->addField(\ZendSearch\Lucene\Document\Field::text('instrument', $instruments));
-	$doc->addField(\ZendSearch\Lucene\Document\Field::text('motCle', $motsCles));
+	$doc->addField(\ZendSearch\Lucene\Document\Field::text('motCle', $motCles));
 	
 	
-	
+	/*
 	try{
 		#On ouvre notre index, on recherche si notre document possède un attribut correspondant au chemin de ce fichier.
 		
-		$index = \ZendSearch\Lucene\Lucene::open($indexName);
+		$index = \ZendSearch\Lucene\Lucene::open($fileName);
 		$resultFind = $index->find("title:".$titre);
 		
 		#On test si notre fichier est déjà indexé ou pas.
@@ -80,6 +55,38 @@ else
 	}
 	catch(\ZendSearch\Lucene\Exception\RuntimeException $e){
 		echo "Index erreur, fin de l'operation" . PHP_EOL;
-	}
+	}*/
 }
 
+function getInstruments($rdfData)
+{
+    return array('piano synthe saxo');
+}
+
+function getMotCles($rdfData)
+{
+    return array('Doux Bruitage Exotique');
+}
+
+function getTitre($rdfData)
+{
+	return $_GET["titre"];
+
+	//Recupération du titre
+	$titre = $rdfData->allOfType('http://purl.org/dc/elements/1.1/#title');
+	
+	echo "titre: " . $titre .PHP_EOL;
+	return $titre;
+}
+
+function getGenre($rdfData)
+{
+	return $_GET["genre"];
+	
+	
+	//Recupération du genre
+	$genre = $rdfData->allOfType('http://purl.org/dc/elements/1.1/#genre');
+	
+	echo "genre: " . $genre .PHP_EOL;
+	return $genre;
+}
