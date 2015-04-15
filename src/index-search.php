@@ -1,6 +1,6 @@
-#!/usr/bin/php -Cq
+
 <?php
-require_once __DIR__ . '/zendsearch/vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 #On récupère le nom de l'index
 $indexName = "searchEngine";
@@ -18,12 +18,18 @@ else if($toSearch != null)
 	#On lancer la recherche, et on affhiche le score ainsi que le nom du fichier
 	#Sinon, une exception est générée
 	try{
+		
 		$index = \ZendSearch\Lucene\Lucene::open($indexName);
-		$hits = $index->find($toSearch);
-		foreach($hits as $hit)
-		{
-			echo $hit->score. " ". $hit->filename. PHP_EOL;
+		$musicsByGenre = $index->find("genre:".$toSearch);
+		$musicsByTitle = $index->find("instrument:".$toSearch);
+		$musicsByInstrument = $index->find("title:".$toSearch);
+		$musics = array_merge($musicsByTitle, $musicsByGenre);
+		
+		foreach($musics as $music){
+			echo "<li>Titre: " . $music->title . ", Genre : " . $music->genre ."</li>";
 		}
+		
+		
 	}
 	catch(\ZendSearch\Lucene\Exception\RuntimeException $e){
 		echo "Erreur lors/après l'ouverture de l'index. Fin de l'exécution" . PHP_EOL;

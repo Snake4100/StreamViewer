@@ -29,7 +29,8 @@ for wav in wav_files:
 
 	all_rdf[wav]=rdf
 
-print json.dumps(all_rdf)
+print "je code bien"
+#print json.dumps(all_rdf)
 
 
 

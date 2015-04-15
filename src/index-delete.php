@@ -1,6 +1,6 @@
 #!/usr/bin/php -Cq
 <?php
-require_once __DIR__ . '/zendsearch/vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 #On récupère le nom de l'index
 $indexName = "searchEngine";
