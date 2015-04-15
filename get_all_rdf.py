@@ -8,15 +8,11 @@ import os
 import io
 import sys
 import json
+import sys
 
-dossierMusique = "Musique/"
+wav = sys.argv[1]
 
-wav_files = [ f for f in os.listdir(dossierMusique) if  f.endswith(".wav") ]
-
-all_rdf = {}
-
-for wav in wav_files:
-	wav = "%s%s"%(dossierMusique, wav)
+if os.path.isfile(wav):
 	xmpfile = libxmp.XMPFiles(file_path=wav, open_forupdate=True )
 	xmp = xmpfile.get_xmp()
 
@@ -27,9 +23,7 @@ for wav in wav_files:
 	if recherche is not None:
 		rdf += recherche.group()
 
-	all_rdf[wav]=rdf
-
-print json.dumps(all_rdf)
+	print json.dumps(rdf)
 
 
 
