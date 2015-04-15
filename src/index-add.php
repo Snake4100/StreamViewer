@@ -1,9 +1,9 @@
 
 <?php
-require '../vendor/autoload.php';
+require '/Applications/MAMP/htdocs/StreamViewer/vendor/autoload.php';
 
 #On récupère le nom de l'index
-$indexName = "searchEngine";
+$indexName = "/Applications/MAMP/htdocs/StreamViewer/src/searchEngine";
 
 
 
@@ -14,10 +14,16 @@ if(!file_exists($indexName))
 }
 else 
 {	
-	$fichier = $_GET["path"];;
+	$fichier = $argv[1];
 	
-	$output = shell_exec("python get_rdf_data.py $fichier");
-
+	if(!file_exists(str_replace('.wav', '.rdf',$fichier))){
+		echo "Erreur, fichier RDF non trouvé".PHP_EOL;
+		return;	
+	}
+	
+	
+	$output = shell_exec("python /Applications/MAMP/htdocs/StreamViewer/src/get_rdf_data.py $fichier");
+	
 	$rdfData = json_decode($output,true);
 	
 	//On créé ensuite un nouveau document
@@ -44,10 +50,10 @@ else
 		}    
 		
 	}
-				/*echo 'titre: ' . $titre .PHP_EOL;
+				echo 'titre: ' . $titre .PHP_EOL;
 				echo 'genre: ' . $genre .PHP_EOL;
 				echo 'motCles: ' . $motsCles .PHP_EOL;
-				echo 'instruments: ' . $instruments .PHP_EOL;	*/
+				echo 'instruments: ' . $instruments .PHP_EOL;	
 	
 	//Auquel on va ajouter les champs souhaités
 	$doc->addField(\ZendSearch\Lucene\Document\Field::text('title', $titre));

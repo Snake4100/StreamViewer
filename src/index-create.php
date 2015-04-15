@@ -14,4 +14,6 @@ else
 {	
 	#S'il n'existe pas, on le créé
 	$index = \ZendSearch\Lucene\Lucene::create($indexName);
+	
+	echo "Index créé avec succès". PHP_EOL;
 }

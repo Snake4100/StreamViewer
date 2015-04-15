@@ -33,17 +33,11 @@
     </div>
 
     <div class="col-lg-4">
-        <form action="http://localhost:8888/StreamViewer/script_upload_fichier.php" method="post">
-            <div class="form-group">
-                <!-- MAX_FILE_SIZE doit précéder le champ input de type file -->
-                <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
-                <!-- Le nom de l'élément input détermine le nom dans le tableau $_FILES -->
-                <!--<input name="userfile" type="file" class="form-control"/>-->
-                <input name="userfile" type="file" class="filestyle center-block" data-size="lg">
-                <br>
-                <input type="submit" value="Envoyer le fichier" class="btn btn-default center-block"/>
-            </div>
-        </form>
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+		    Select image to upload:
+		    <input type="file" name="fileToUpload" id="fileToUpload">
+		    <input type="submit" value="Upload Image" name="submit">
+		</form>
     </div>
 
     <div class="col-lg-4">

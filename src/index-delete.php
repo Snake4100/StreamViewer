@@ -18,6 +18,8 @@ else
 	try{
 		$index = \ZendSearch\Lucene\Lucene::open($indexName);
    		deleteDirectory($indexName);
+   		
+		echo "Index supprimé avec succès". PHP_EOL;
 	}
 	catch(\ZendSearch\Lucene\Exception\RuntimeException $e){
 		echo "Index erreur, fin de l'operation" . PHP_EOL;
