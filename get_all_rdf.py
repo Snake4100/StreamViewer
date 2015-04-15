@@ -23,14 +23,7 @@ if os.path.isfile(wav):
 	if recherche is not None:
 		rdf += recherche.group()
 
-<<<<<<< HEAD
 	print json.dumps(rdf)
-=======
-	all_rdf[wav]=rdf
-
-print "je code bien"
-#print json.dumps(all_rdf)
->>>>>>> origin/master
 
 
 
