@@ -19,8 +19,8 @@
 #include <fcntl.h>
 #include <sys/types.h>
 #include <sys/ioctl.h>
-//#include <linux/soundcard.h>
-#include </full/path/to/CoreAudio.h> 
+#include "soundcard.h"
+//#include </full/path/to/CoreAudio.h> 
 
 #define RATE 44100  /* Taux d'échantillonnage par défaut 44100 */
 #define SIZE 16     /* taille en bits d'un échantillon: 8 or 16 bits */
@@ -218,9 +218,9 @@ int main(void) {
 		/*        la deconnexion du client                           */
 		/*************************************************************/
 		//réception du fichier audio
-		recv_line(sockfd, buffer)
+		recv_line(sockfd, buffer);
 		//on affiche le fichier demandé
-		printf("Vous avez demandé : %s\n", buffer);
+		printf("Vous avez demande : %s\n", buffer);
 
 		main_wave(new_sockfd,buffer);
 	
