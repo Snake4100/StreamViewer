@@ -10,7 +10,7 @@ import io
 
 nameSpace_DC = "http://purl.org/dc/elements/1.1/"
 nameSpace_ex = "http://example.org#"
-dossierMusique = "Musique/"
+dossierMusique = "Musique_RDF/"
 
 rdf_files = [ f for f in os.listdir(dossierMusique) if  f.endswith(".rdf") ]
 

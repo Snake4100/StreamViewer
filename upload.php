@@ -1,6 +1,8 @@
 <?php
+//header("Location: http://localhost:8888/StreamViewer/acceuil.php");
 $target_dir = "/Applications/MAMP/htdocs/StreamViewer/Musique/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+echo $target_file;
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 // Check if file already exists

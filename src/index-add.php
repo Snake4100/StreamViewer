@@ -16,15 +16,11 @@ else
 {	
 	$fichier = $argv[1];
 	
-	if(!file_exists(str_replace('.wav', '.rdf',$fichier))){
-		echo "Erreur, fichier RDF non trouvé".PHP_EOL;
-		return;	
-	}
-	
-	
 	$output = shell_exec("python /Applications/MAMP/htdocs/StreamViewer/src/get_rdf_data.py $fichier");
 	
 	$rdfData = json_decode($output,true);
+	
+	echo $rdfData;
 	
 	//On créé ensuite un nouveau document
 	$doc = new \ZendSearch\Lucene\Document();
