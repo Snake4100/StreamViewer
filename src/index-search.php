@@ -6,6 +6,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 $indexName = "searchEngine";
 #Puis l'élément à rechercher
 $toSearch = $_GET["toSearch"];
+#$toSearch = "Jingle";
 
 #Ensuite, test si l'index existe ou non
 if(!file_exists($indexName))
@@ -21,11 +22,13 @@ else if($toSearch != null)
 		
 		$index = \ZendSearch\Lucene\Lucene::open($indexName);
 		$musicsByGenre = $index->find("genre:".$toSearch);
-		$musicsByTitle = $index->find("instrument:".$toSearch);
-		$musicsByInstrument = $index->find("title:".$toSearch);
+		$musicsByTitle = $index->find("title:".$toSearch);
+		/*$musicsByMotsCles = $index->find("motCles:".$toSearch);
+		$musicsByInstrument = $index->find("instruments:".$toSearch);*/
 		$musics = array_merge($musicsByTitle, $musicsByGenre);
 		
 		foreach($musics as $music){
+			//echo "<li>Titre: " . $music->title . ", Genre : " . $music->genre . ", Mots Cles : " . $music->motsCles . ", Instruments : " . $music->instruments ."</li>";
 			echo "<li>Titre: " . $music->title . ", Genre : " . $music->genre ."</li>";
 		}
 		
