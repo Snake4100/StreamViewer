@@ -58,8 +58,8 @@ else
 	//Auquel on va ajouter les champs souhaités
 	$doc->addField(\ZendSearch\Lucene\Document\Field::text('title', $titre));
 	$doc->addField(\ZendSearch\Lucene\Document\Field::text('genre', $genre));
-	$doc->addField(\ZendSearch\Lucene\Document\Field::text('instrument', $instruments));
-	$doc->addField(\ZendSearch\Lucene\Document\Field::text('motCle', $motsCles));
+	$doc->addField(\ZendSearch\Lucene\Document\Field::text('instruments', $instruments));
+	$doc->addField(\ZendSearch\Lucene\Document\Field::text('motCles', $motsCles));
 	
 	
 	

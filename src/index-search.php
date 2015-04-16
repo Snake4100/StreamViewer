@@ -21,12 +21,13 @@ else if($toSearch != null)
 		
 		$index = \ZendSearch\Lucene\Lucene::open($indexName);
 		$musicsByGenre = $index->find("genre:".$toSearch);
-		$musicsByTitle = $index->find("instrument:".$toSearch);
-		$musicsByInstrument = $index->find("title:".$toSearch);
+		$musicsByTitle = $index->find("title:".$toSearch);
+		$musicsByMotsCles = $index->find("motCles:".$toSearch);
+		$musicsByInstrument = $index->find("instruments:".$toSearch);
 		$musics = array_merge($musicsByTitle, $musicsByGenre);
 		
 		foreach($musics as $music){
-			echo "<li>Titre: " . $music->title . ", Genre : " . $music->genre ."</li>";
+			echo "<li>Titre: " . $music->title . ", Genre : " . $music->genre . ", Mots Cles : " . $music->motsCles . ", Instruments : " . $music->instruments ."</li>";
 		}
 		
 		
