@@ -49,14 +49,20 @@ else
 				echo 'Titre: ' . $titre ."<br/>";
 				echo 'Genre: ' . $genre ."<br/>";
 				echo 'Mot Cles: ' . $motsCles ."<br/>";
-				//echo 'Instruments: ' . $instruments ."<br/>";	
+				if(strlen($instruments)>1){
+					
+					echo 'Instruments: ' . $instruments ."<br/>";	
+				}
 	
 	//Auquel on va ajouter les champs souhaités
 	$doc->addField(\ZendSearch\Lucene\Document\Field::text('title', $titre));
 	$doc->addField(\ZendSearch\Lucene\Document\Field::text('genre', $genre));
 	$doc->addField(\ZendSearch\Lucene\Document\Field::text('instruments', $instruments));
 	$doc->addField(\ZendSearch\Lucene\Document\Field::text('motCles', $motsCles));
-	$doc->addField(\ZendSearch\Lucene\Document\Field::text('chemin', "/StreamViewer/Musique/".$titre . ".wav"));
+		$chemin = str_replace(" ", "-", "/StreamViewer/Musique/".$titre);
+
+	$doc->addField(\ZendSearch\Lucene\Document\Field::text('chemin', $chemin . ".wav"));
+	//$doc->addField(\ZendSearch\Lucene\Document\Field::text('chemin', "/StreamViewer/Musique/".$titre . ".wav"));
 	
 	
 	

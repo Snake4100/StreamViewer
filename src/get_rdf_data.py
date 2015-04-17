@@ -68,7 +68,7 @@ if os.path.isfile(wav):
 			
 		
 	#on récupére les instruments
-	instruments = g.query('SELECT distinct ?instrument  where {  ?x <http://purl.org/dc/elements/1.1/instruments> ?alt . ?bag ?y ?instrument. }')
+	instruments = g.query('SELECT distinct ?instrument  where {  ?x <http://purl.org/dc/elements/1.1/instruments> ?alt . ?alt ?y ?instrument. }')
 	
 	instrumentStr =""
 	for instrument in instruments:
