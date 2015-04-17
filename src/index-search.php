@@ -6,6 +6,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 $indexName = "searchEngine";
 #Puis l'élément à rechercher
 $toSearch = $_GET["toSearch"];
+$toSearch = "Jingle";
 
 #Ensuite, test si l'index existe ou non
 if(!file_exists($indexName))
@@ -15,7 +16,7 @@ if(!file_exists($indexName))
 else if($toSearch != null)
 {				
 	#On ouvre l'index afin de lancer la recherche
-	#On lancer la recherche, et on affhiche le score ainsi que le nom du fichier
+	#On lancer la recherche, et on affiche le score ainsi que le nom du fichier
 	#Sinon, une exception est générée
 	try{
 		
@@ -24,10 +25,24 @@ else if($toSearch != null)
 		$musicsByTitle = $index->find("title:".$toSearch);
 		$musicsByMotsCles = $index->find("motCles:".$toSearch);
 		$musicsByInstrument = $index->find("instruments:".$toSearch);
-		$musics = array_merge($musicsByTitle, $musicsByGenre);
-		
+		$musics = array_merge($musicsByTitle, $musicsByGenre, $musicsByMotsCles, $musicsByInstrument);
+
 		foreach($musics as $music){
-			echo "<li>Titre: " . $music->title . ", Genre : " . $music->genre . ", Mots Cles : " . $music->motsCles . ", Instruments : " . $music->instruments ."</li>";
+		
+			//if($music->motsCles && $music->instruments){
+				echo "<li>Titre: " . $music->title . ", Genre : " . $music->genre ."</li><br/>";
+				echo "<a href=\"" . $music->chemin . "\">" . $music->title."</a>";
+			/*}
+			else if($music->motsCles){
+				echo "<li>Titre: " . $music->title . ", Genre : " . $music->genre .", Instruments : " . $music->instruments ."</li>";
+			}
+			else if($music->instruments){
+				echo "<li>Titre: " . $music->title . ", Genre : " . $music->genre .", Mots-clés : " . $music->motsCles ."</li>";
+			}
+			else{ 
+				echo "<li>Titre: " . $music->title . ", Genre : " . $music->genre . ", Mots Clés : " . $music->motsCles . ", Instruments : " . $music->instruments ."</li>";
+			}*/
+			
 		}
 		
 		

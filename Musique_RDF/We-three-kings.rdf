@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:ex="http://example.org#" xmlns:dc="http://purl.org/dc/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+    <ex:musique rdf:about="http://www.streamviewer.fr/musique/We-three-kings">
+        <ex:titre>We three kings</ex:titre>
+        <ex:genre rdf:resource="http://www.streamviewer.fr/genre/noel"/>
+        <ex:mots-cles >
+        	<rdf:Bag>
+        		<ex:mot-cle rdf:resource="http://www.streamviewer.fr/mot-cle/fete"/>
+        		<ex:mot-cle rdf:resource="http://www.streamviewer.fr/mot-cle/noel"/>
+        		<ex:mot-cle rdf:resource="http://www.streamviewer.fr/mot-cle/religion"/>
+        	</rdf:Bag>
+        </ex:mots-cles>
+    </ex:musique>
+
+
+    <ex:genre rdf:about="http://www.streamviewer.fr/genre/noel">
+     	<ex:name>Noel</ex:name>
+    </ex:genre>
+
+
+    <ex:mot-cle rdf:about="http://www.streamviewer.fr/mot-cle/fete">
+     	<ex:name>Fete</ex:name>
+    </ex:mot-cle>
+    <ex:mot-cle rdf:about="http://www.streamviewer.fr/mot-cle/noel">
+     	<ex:name>Noel</ex:name>
+    </ex:mot-cle>
+    <ex:mot-cle rdf:about="http://www.streamviewer.fr/mot-cle/religion">
+     	<ex:name>Religion</ex:name>
+    </ex:mot-cle>
+
+
+</rdf:RDF>

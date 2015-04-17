@@ -1,0 +1,27 @@
+<?xml version="1.0"?><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about=""
+    xmlns:dc="http://purl.org/dc/elements/1.1/">
+   <dc:title>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Agenda</rdf:li>
+     <rdf:li xml:lang="fr-FR">Agenda</rdf:li>
+    </rdf:Alt>
+   </dc:title>
+   <dc:genre>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Jingle</rdf:li>
+     <rdf:li xml:lang="fr-FR">Jingle</rdf:li>
+    </rdf:Alt>
+   </dc:genre>
+   <dc:mots-cles>
+    <rdf:Bag>
+     <rdf:li>Bonheur</rdf:li>
+     <rdf:li>Voyage</rdf:li>
+     <rdf:li>Cuivres</rdf:li>
+     <rdf:li>Mystique</rdf:li>
+     <rdf:li>World Music</rdf:li>
+     <rdf:li>Voyage</rdf:li>
+    </rdf:Bag>
+   </dc:mots-cles>
+  </rdf:Description>
+ </rdf:RDF>
