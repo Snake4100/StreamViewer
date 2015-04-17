@@ -57,20 +57,24 @@ if os.path.isfile(wav):
 		rdfData['genre'] = genre
 
 	#on récupére les mots cles
-	motCles = g.query("SELECT ?mot_cle  where { ?alt rdfs:member ?mot_cle . ?x <http://purl.org/dc/elements/1.1/mots-cles> ?alt. }")
-
+	motCles = g.query("SELECT ?mot_cle  where {  ?x <http://purl.org/dc/elements/1.1/mots-cles> ?alt . ?alt ?y ?mot_cle. }")
+	
 	motsClesStr =""
 	for mot_cle in motCles :
-		motsClesStr += "%s "%mot_cle
+		mot_cle = "%s "%mot_cle
+		if not "http://" in mot_cle:
+			motsClesStr += mot_cle
 	rdfData['motCles'] = motsClesStr
 			
 		
 	#on récupére les instruments
-	instruments = g.query('SELECT ?instrument  where { ?alt rdfs:member ?instrument . ?x <http://purl.org/dc/elements/1.1/instruments> ?alt. }')
+	instruments = g.query('SELECT distinct ?instrument  where {  ?x <http://purl.org/dc/elements/1.1/instruments> ?alt . ?bag ?y ?instrument. }')
 	
 	instrumentStr =""
 	for instrument in instruments:
-		instrumentStr += "%s "%instrument
+		instrument = "%s "%instrument
+		if not "http://" in instrument:
+			instrumentStr += instrument
 	rdfData['instrument'] = instrumentStr	
 	
 	#print rdfData

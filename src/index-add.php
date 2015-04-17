@@ -20,7 +20,7 @@ else
 	
 	$rdfData = json_decode($output,true);
 	
-	echo $rdfData;
+
 	
 	//On créé ensuite un nouveau document
 	$doc = new \ZendSearch\Lucene\Document();
@@ -46,16 +46,17 @@ else
 		}    
 		
 	}
-				echo 'titre: ' . $titre .PHP_EOL;
-				echo 'genre: ' . $genre .PHP_EOL;
-				echo 'motCles: ' . $motsCles .PHP_EOL;
-				echo 'instruments: ' . $instruments .PHP_EOL;	
+				echo 'Titre: ' . $titre ."<br/>";
+				echo 'Genre: ' . $genre ."<br/>";
+				echo 'Mot Cles: ' . $motsCles ."<br/>";
+				//echo 'Instruments: ' . $instruments ."<br/>";	
 	
 	//Auquel on va ajouter les champs souhaités
 	$doc->addField(\ZendSearch\Lucene\Document\Field::text('title', $titre));
 	$doc->addField(\ZendSearch\Lucene\Document\Field::text('genre', $genre));
 	$doc->addField(\ZendSearch\Lucene\Document\Field::text('instruments', $instruments));
 	$doc->addField(\ZendSearch\Lucene\Document\Field::text('motCles', $motsCles));
+	$doc->addField(\ZendSearch\Lucene\Document\Field::text('chemin', "/StreamViewer/Musique/".$titre . ".wav"));
 	
 	
 	
@@ -63,21 +64,21 @@ else
 		#On ouvre notre index, on recherche si notre document possède un attribut correspondant au chemin de ce fichier.
 		
 		$index = \ZendSearch\Lucene\Lucene::open($indexName);
-		$resultFind = $index->find("title:".$titre);
+		$resultFind = $index->find("fichier:".$fichier);
 		
 		#On test si notre fichier est déjà indexé ou pas.
 		#Si il n'est pas déjà indexé, on le fait
 		
 		if(count($resultFind) ==0){
-			$doc->addField(\ZendSearch\Lucene\Document\Field::text('title', $titre));
 			$index->addDocument($doc);
-			echo "Music added: " . $titre .PHP_EOL;
+			echo "<br/><h3>Musique ajoutée : " . $titre ."</h3>";
 		}
 		#Sinon, on arrête le traitement.
 		else{
 			echo "Erreur, document déjà existant" . PHP_EOL;
 		}
 		
+		//Optimisation de l'index
 		$index->optimize();
 	}
 	catch(\ZendSearch\Lucene\Exception\RuntimeException $e){

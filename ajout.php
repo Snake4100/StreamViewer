@@ -35,7 +35,7 @@
     <div class="col-lg-4">
         <form action="upload.php" method="post" enctype="multipart/form-data">
 		    <input type="file" class="center-block" name="fileToUpload" id="fileToUpload">
-		    <input type="submit" class="btn btn-default center-block" value="Upload Image" name="submit">
+		    <input type="submit" class="btn btn-default center-block" value="Upload Musique" name="submit">
 		</form>
     </div>
 

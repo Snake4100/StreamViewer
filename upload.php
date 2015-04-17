@@ -2,7 +2,7 @@
 //header("Location: http://localhost:8888/StreamViewer/acceuil.php");
 $target_dir = "/Applications/MAMP/htdocs/StreamViewer/Musique/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-echo $target_file ."<br>";
+
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 // Check if file already exists
@@ -16,7 +16,6 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
         echo shell_exec("php src/index-add.php ".$target_file);
     } else {
         echo "Sorry, there was an error uploading your file.";
