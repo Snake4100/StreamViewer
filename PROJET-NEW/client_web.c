@@ -34,10 +34,13 @@ int main(int argc, char *argv[]) {
 	if (connect(sockfd, (struct sockaddr *)&target_addr, sizeof(struct sockaddr)) == -1)
 		fatal("connecting to target server");
 
-	//send_string(sockfd, "HEAD / HTTP/1.0\r\n\r\n");
+	/*******		Ligne commentée		 *****/
+	//send_string(sockfd, "HEAD / HTTP/1.0\r\n\r\n"); 
 
+	/*******		Ligne rajoutée	 *****/
 	send_string(sockfd, "GET /audio.ram HTTP/1.1\r\n");
 
+	/*******		Lignes commentées		 *****/
 	/*while(recv_line(sockfd, buffer)) {
 		if(strncasecmp(buffer, "Server:", 7) == 0) {
 			printf("The web server for %s is %s\n", argv[1], buffer);
@@ -45,7 +48,7 @@ int main(int argc, char *argv[]) {
 		}
 	}*/
 
-	/* Receiving file size */
+	/*******		Ligne rajouté		 *****/
     recv(sockfd, buffer, BUFSIZ, 0);
     printf("Le contenu du fichier est %s\n",buffer);
 

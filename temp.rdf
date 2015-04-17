@@ -3,21 +3,37 @@
     xmlns:dc="http://purl.org/dc/elements/1.1/">
    <dc:title>
     <rdf:Alt>
+<<<<<<< HEAD
      <rdf:li xml:lang="x-default">Cherche moi Long</rdf:li>
      <rdf:li xml:lang="fr-FR">Cherche moi Long</rdf:li>
+=======
+     <rdf:li xml:lang="x-default">We three kings</rdf:li>
+     <rdf:li xml:lang="fr-FR">We three kings</rdf:li>
+>>>>>>> 6eda952dae74907b486224619690b9e84808db3f
     </rdf:Alt>
    </dc:title>
    <dc:genre>
     <rdf:Alt>
+<<<<<<< HEAD
      <rdf:li xml:lang="x-default">Jazz</rdf:li>
      <rdf:li xml:lang="fr-FR">Jazz</rdf:li>
+=======
+     <rdf:li xml:lang="x-default">Noel</rdf:li>
+     <rdf:li xml:lang="fr-FR">Noel</rdf:li>
+>>>>>>> 6eda952dae74907b486224619690b9e84808db3f
     </rdf:Alt>
    </dc:genre>
    <dc:mots-cles>
     <rdf:Bag>
+<<<<<<< HEAD
      <rdf:li>Nuit</rdf:li>
      <rdf:li>Douceur</rdf:li>
      <rdf:li>Jazz</rdf:li>
+=======
+     <rdf:li>Fete</rdf:li>
+     <rdf:li>Noel</rdf:li>
+     <rdf:li>Religion</rdf:li>
+>>>>>>> 6eda952dae74907b486224619690b9e84808db3f
     </rdf:Bag>
    </dc:mots-cles>
    <dc:instruments>

@@ -16,7 +16,8 @@
 #include <fcntl.h>
 #include <sys/types.h>
 #include <sys/ioctl.h>
-#include <linux/soundcard.h>
+//#include <linux/soundcard.h>
+#include "soundcard.h"
 
 
 #define LINELENGTH 88200   /* Longueur des paquets recues */
@@ -53,7 +54,7 @@ int main(int argc, char *argv[]) {
 /*-----------------------------------------------------------------------*/
 
   /* Ouverture du Device audio */
-  fdson = open("/dev/dsp", O_RDWR);
+  fdson = open("/dev/urandom", O_RDWR);
   if (fdson < 0) {
     perror("Erreur lors de l'ouverture de /dev/dsp");
     exit(1);
@@ -122,22 +123,16 @@ int main(int argc, char *argv[]) {
         /*     - Ecrire sur le flux fdson le contenu de buf pour l’envoie aux      */
 		/*       haut-parleurs.                                                                        */
 		/**************************************************************/
+	send_string(sockfd, "bbc.wav\r\n");
+
+	while((n=fread(buf,sizeof(char),LINELENGTH,fdesc)))
+	{
+		printf("nouveau son\n");
+		status=write(fdson,buf,LINELENGTH);
+		status=ioctl(fdson,SOUND_PCM_SYNC,0);
+	}
 		
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	fclose(fd);
 	printf("Arret du serveur\n");
 	exit(1);

@@ -6,7 +6,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 $indexName = "searchEngine";
 #Puis l'élément à rechercher
 $toSearch = $_GET["toSearch"];
-$toSearch = "Jingle";
+#$toSearch = "Jingle";
 
 #Ensuite, test si l'index existe ou non
 if(!file_exists($indexName))
