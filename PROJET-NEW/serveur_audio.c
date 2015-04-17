@@ -27,7 +27,7 @@
 #define CHANNELS 1  /* 1 = mono 2 = stereo */
 #define LINELENGTH 88200  /* Buffer : les paquets font 2048 */
 
-#define PORT 7890	// le client devra se connecter au port 7890
+#define PORT 7890	// le client devrGa se connecter au port 7890
 
 
 /* Ce buffer gère les données audio par paquet de longueur LINELENGTH pour la lecture complète du fichier son */
@@ -107,6 +107,7 @@ void main_wave(int new_sockfd, char pszFileName[] ){
 	 nRead = fread(&(nTotalChunkSize),4,1,pFile);
 	  if((pbType[0]=='d') && (pbType[1]=='a') && (pbType[2]=='t') && (pbType[3]=='a')){
 	  found=1;
+	  printf("%d\n", found);
 	  break;
 	  }
 	  fseek(pFile,nTotalChunkSize,SEEK_CUR);
@@ -206,7 +207,6 @@ int main(void) {
 		
 		send_string(new_sockfd, "Hello World! Quel fichier audio, please?\r\n");
 		
-		
 		/*************************************************************/
 		/*  VOUS INTERVENEZ ICI                                      */
 		/*  Cette partie du programme doit                           */
@@ -217,8 +217,9 @@ int main(void) {
 		/*        jusqu'a la fin du fichier audio ou bien la         */
 		/*        la deconnexion du client                           */
 		/*************************************************************/
+		printf("On attend la demande\n");
 		//réception du fichier audio
-		recv_line(sockfd, buffer);
+		recv_line(new_sockfd, buffer);
 		//on affiche le fichier demandé
 		printf("Vous avez demande : %s\n", buffer);
 

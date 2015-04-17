@@ -91,6 +91,8 @@ void handle_connection(int sockfd, struct sockaddr_in *client_addr_ptr) {
             send_string(sockfd, "<body><h1>URL not found</h1></body></html>\r\n");
          } else {      // otherwise, serve up the file
             printf(" 200 OK\n");
+
+            /*******    Lignes commentées     *****/
             /*send_string(sockfd, "HTTP/1.0 200 OK\r\n");
             send_string(sockfd, "Server: Tiny webserver\r\n");*/
             if(ptr == request + 4) { // then this is a GET request
